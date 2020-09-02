@@ -3,13 +3,13 @@ import time
 import pymysql
 
 while (True):
-    conexao = pymysql.connect(host='10.35.18.20', db='almavivalayout', user='root', passwd='xcpo10tg', port=3306)
+    conexao = pymysql.connect(host='seu host aqui', db='Nome do DB', user='Usuario', passwd='Senha', port=3306) #Porta 3306 é padrão, caso a sua seja especifica, Altere
     i = 0
-    count = 100
+    count = 0
     for i in range(0, 10):
         cursor = conexao.cursor()
         print (count)
-        maquina = 'sp0006pa0' + str(count)
+        maquina = 'Hostname ou IP'
         print (maquina)
         def ping(host):
 
@@ -23,14 +23,14 @@ while (True):
 
         if ping(maquina) == True:
             print ('Ok')
-            cursor.execute("UPDATE `layout` SET `status`='btn-success' WHERE pa = '"+maquina+"'")
+            cursor.execute("Comando em SQL")
             conexao.commit()
         else:
             print ('falhou')
-            cursor.execute("UPDATE `layout` SET `status`='btn-danger' WHERE pa = '"+maquina+"'")
+            cursor.execute("Comando em SQL")
             conexao.commit()
         count += 1
-        time.sleep(1.0)
+        time.sleep(1.0) #Tempo de pausa entre os Loops do FOR
         
     conexao.close()
-    time.sleep(10.0)
+    time.sleep(10.0) #Tempo de pausa entre os Loops do WHILE
