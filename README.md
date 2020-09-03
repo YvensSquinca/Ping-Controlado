@@ -1,5 +1,5 @@
 # Teste-Ping-Infinito
-Sistema em Python 3.6.8 que realiza ping infinito nas maquinas por hostname ou IP.
+Script em Python 3.6.8 que realiza ping infinito nas maquinas por hostname ou IP e grava o resultado no Banco de Dados MySQL.
 
 Para utilização é necessario a instalação da Biblioteca pymysql.
 
