@@ -8,9 +8,8 @@ while (True):
     count = 0
     for i in range(0, 10):
         cursor = conexao.cursor()
-        print (count)
         maquina = 'Hostname ou IP'
-        print (maquina)
+        
         def ping(host):
 
             import subprocess, platform
