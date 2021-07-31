@@ -6,7 +6,7 @@ while (True):
     conexao = pymysql.connect(host='seu host aqui', db='Nome do DB', user='Usuario', passwd='Senha', port=3306) #Porta 3306 é padrão, caso a sua seja especifica, Altere
     i = 0
     count = 0
-    for i in range(0, 10):
+    for i in range(0, 10): #Numero de Repetições
         cursor = conexao.cursor()
         maquina = 'Hostname ou IP'
         
@@ -21,12 +21,12 @@ while (True):
             return subprocess.call(args, shell=need_sh) == 0
 
         if ping(maquina) == True:
-            print ('Ok')
-            cursor.execute("Comando em SQL")
+            print ('Maquina Online')
+            cursor.execute("Comando em SQL") #Exemplo - "UPDATE `maquina` SET `status`='online'"
             conexao.commit()
         else:
-            print ('falhou')
-            cursor.execute("Comando em SQL")
+            print ('Maquina Offline')
+            cursor.execute("Comando em SQL") #Exemplo - "UPDATE `maquina` SET `status`='offline'"
             conexao.commit()
         count += 1
         time.sleep(1.0) #Tempo de pausa entre os Loops do FOR
